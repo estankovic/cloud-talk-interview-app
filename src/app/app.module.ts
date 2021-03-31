@@ -3,10 +3,20 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { LoginComponent } from './pages/login/login.component';
+import { MainComponent } from './pages/main/main.component';
+import { SubmittedDataComponent } from './components/submitted-data/submitted-data.component';
+import { ProfileFormComponent } from './components/profile-form/profile-form.component';
+import { UserProfileComponent } from './containers/user-profile/user-profile.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    LoginComponent,
+    MainComponent,
+    SubmittedDataComponent,
+    ProfileFormComponent,
+    UserProfileComponent
   ],
   imports: [
     BrowserModule,
