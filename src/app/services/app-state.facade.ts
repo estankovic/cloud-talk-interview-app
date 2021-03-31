@@ -43,8 +43,21 @@ export class AppStateFacade { // this service could be split to multiple based o
 
   readonly state$ = this.stateSubject.asObservable();
 
-  readonly isLoggedIn$ = this.state$.pipe(map(v => v.isLoggedIn), distinctUntilChanged());
+  readonly isLoggedIn$ = this.state$.pipe(map(s => s.isLoggedIn), distinctUntilChanged());
 
+  readonly profileFormSubmittedSuccessfully$ = this.state$.pipe(
+    map(s => s.submittedData.sentSuccessfully),
+    distinctUntilChanged()
+  );
+
+  readonly profileFormData$ = this.state$.pipe(
+    map(s => ({
+      name: s.submittedData.name,
+      email: s.submittedData.email,
+      phone_number: s.submittedData.phone_number,
+    })),
+    distinctUntilChanged(),
+  );
 
   private get stateSnapshot() {
     return this.stateSubject.getValue();
