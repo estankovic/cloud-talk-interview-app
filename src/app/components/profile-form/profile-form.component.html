@@ -1,1 +1,16 @@
-<p>profile-form works!</p>
+<div class="form" [formGroup]="form">
+  <div class="form__row" [class.form__row--has-error]="hasError('name')">
+    <label for="name">Name</label>
+    <input id="name" type="text" formControlName="name">
+  </div>
+  <div class="form__row" [class.form__row--has-error]="hasError('email')">
+    <label for="email">Email</label>
+    <input id="email" type="text" formControlName="email">
+  </div>
+  <div class="form__row" [class.form__row--has-error]="hasError('phone_number')">
+    <label for="phone_number">Phone number</label>
+    <input id="phone_number" type="text" formControlName="phone_number">
+  </div>
+  <button (click)="onSubmit()" [disabled]="form.invalid">Submit</button>
+  <button (click)="onReset()">Reset</button>
+</div>

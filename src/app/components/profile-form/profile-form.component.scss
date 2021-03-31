@@ -1,0 +1,19 @@
+.form {
+  display: flex;
+  flex-direction: column;
+
+  &__row {
+    display: flex;
+    flex-direction: row;
+
+    &--has-error {
+      input {
+        border: 1px solid red;
+      }
+    }
+
+    label {
+      font-weight: bold;
+    }
+  }
+}

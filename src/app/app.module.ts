@@ -8,6 +8,7 @@ import { MainComponent } from './pages/main/main.component';
 import { SubmittedDataComponent } from './components/submitted-data/submitted-data.component';
 import { ProfileFormComponent } from './components/profile-form/profile-form.component';
 import { UserProfileComponent } from './containers/user-profile/user-profile.component';
+import {ReactiveFormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { UserProfileComponent } from './containers/user-profile/user-profile.com
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
