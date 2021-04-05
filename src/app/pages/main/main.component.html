@@ -1,1 +1,8 @@
-<p>main works!</p>
+<app-submitted-data
+  *ngIf="profileFormSubmittedSuccessFully$ | async"
+  [data]="profileFormData$ | async"
+></app-submitted-data>
+
+
+<app-user-profile></app-user-profile>
+
