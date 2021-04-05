@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {BehaviorSubject, of} from "rxjs";
 import {distinctUntilChanged, map, switchMap} from "rxjs/operators";
 import {Router} from "@angular/router";
+import {RestApiService} from "./rest-api.service";
 
 export interface AppState {
   isLoggedIn: boolean;
@@ -66,6 +67,7 @@ export class AppStateFacade { // this service could be split to multiple based o
 
   constructor(
     private readonly router: Router,
+    private readonly api: RestApiService,
   ) { }
 
   logUserIn() {
@@ -89,7 +91,7 @@ export class AppStateFacade { // this service could be split to multiple based o
   }
 
   sendProfileForm(name: string, email: string, phone_number: string) {
-    of().subscribe(res => {
+    this.api.updateProfile(name, email, phone_number).subscribe(res => {
       this.setState({
         ...this.stateSnapshot,
         submittedData: {
