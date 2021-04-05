@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import {BehaviorSubject, of} from "rxjs";
 import {distinctUntilChanged, map, switchMap} from "rxjs/operators";
+import {Router} from "@angular/router";
 
 export interface AppState {
   isLoggedIn: boolean;
@@ -63,7 +64,9 @@ export class AppStateFacade { // this service could be split to multiple based o
     return this.stateSubject.getValue();
   }
 
-  constructor() { }
+  constructor(
+    private readonly router: Router,
+  ) { }
 
   logUserIn() {
     const isLoggedIn = true;
@@ -72,6 +75,8 @@ export class AppStateFacade { // this service could be split to multiple based o
       ...this.stateSnapshot,
       isLoggedIn,
     });
+
+    this.router.navigate(['']);
   }
 
   logUserOut() {

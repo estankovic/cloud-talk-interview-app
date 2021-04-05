@@ -1,1 +1,11 @@
-<p>login works!</p>
+<div class="form" [formGroup]="loginForm">
+  <div class="form__row" [class.form__row--has-error]="hasError('username')">
+    <label for="username">Username</label>
+    <input id="username" type="text" formControlName="username">
+  </div>
+  <div class="form__row" [class.form__row--has-error]="hasError('password')">
+    <label for="password">Password</label>
+    <input id="password" type="password" formControlName="password">
+  </div>
+  <button (click)="onLogin()" [disabled]="loginForm.invalid">Login</button>
+</div>
