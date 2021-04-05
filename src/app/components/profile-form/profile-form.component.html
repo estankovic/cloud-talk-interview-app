@@ -1,16 +1,37 @@
 <div class="form" [formGroup]="form">
-  <div class="form__row" [class.form__row--has-error]="hasError('name')">
+  <div class="form-row">
     <label for="name">Name</label>
-    <input id="name" type="text" formControlName="name">
+    <input
+      id="name"
+
+      type="text"
+      formControlName="name"
+      class="form-control"
+      [class.is-invalid]="hasError('name')"
+    >
   </div>
-  <div class="form__row" [class.form__row--has-error]="hasError('email')">
+  <div class="form-row">
     <label for="email">Email</label>
-    <input id="email" type="text" formControlName="email">
+    <input
+      id="email"
+      type="text"
+      formControlName="email"
+      class="form-control"
+      [class.is-invalid]="hasError('email')"
+    >
   </div>
-  <div class="form__row" [class.form__row--has-error]="hasError('phone_number')">
+  <div class="form-row">
     <label for="phone_number">Phone number</label>
-    <input id="phone_number" type="text" formControlName="phone_number">
+    <input
+      id="phone_number"
+      type="text"
+      formControlName="phone_number"
+      class="form-control"
+      [class.is-invalid]="hasError('phone_number')"
+    >
   </div>
-  <button (click)="onSubmit()" [disabled]="form.invalid">Submit</button>
-  <button (click)="onReset()">Reset</button>
+  <div class="mt-2">
+    <button class="btn btn-primary mr-1" (click)="onSubmit()" [disabled]="form.invalid">Submit</button>
+    <button class="btn btn-danger" (click)="onReset()">Reset</button>
+  </div>
 </div>

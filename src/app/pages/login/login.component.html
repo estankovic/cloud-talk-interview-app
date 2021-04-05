@@ -1,11 +1,29 @@
-<div class="form" [formGroup]="loginForm">
-  <div class="form__row" [class.form__row--has-error]="hasError('username')">
-    <label for="username">Username</label>
-    <input id="username" type="text" formControlName="username">
+<div class="container">
+  <div class="row">
+    <div class="col"  [formGroup]="loginForm">
+        <div class="form-row">
+          <label for="username">Username</label>
+          <input
+            class="form-control"
+            id="username"
+            type="text"
+            formControlName="username"
+            [class.is-invalid]="hasError('username')"
+          >
+        </div>
+        <div class="form-row" [class.form__row--has-error]="hasError('password')">
+          <label for="password">Password</label>
+          <input
+            class="form-control"
+            id="password"
+            type="password"
+            formControlName="password"
+            [class.is-invalid]="hasError('password')"
+          >
+        </div>
+        <button class="btn btn-primary mt-2" (click)="onLogin()" [disabled]="loginForm.invalid">Login</button>
+      </div>
   </div>
-  <div class="form__row" [class.form__row--has-error]="hasError('password')">
-    <label for="password">Password</label>
-    <input id="password" type="password" formControlName="password">
-  </div>
-  <button (click)="onLogin()" [disabled]="loginForm.invalid">Login</button>
+
+
 </div>

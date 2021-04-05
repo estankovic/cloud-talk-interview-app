@@ -1,13 +1,22 @@
-<p *ngIf="isLoading$ | async">Loading...</p>
-<p *ngIf="isLoaded$ | async">Loaded</p>
-<p *ngIf="hasError$ | async">Error</p>
+<div class="card">
+  <div class="card-body">
+    <div class="alert alert-info" *ngIf="isLoading$ | async">Loading...</div>
+    <div class="alert alert-success" *ngIf="isLoaded$ | async">Loaded</div>
+    <div class="alert alert-danger" *ngIf="hasError$ | async">Error</div>
 
-<app-submitted-data
-  *ngIf="profileFormSubmittedSuccessFully$ | async"
-  [data]="profileFormData$ | async"
-></app-submitted-data>
 
-<app-profile-form></app-profile-form>
+    <app-submitted-data
+      *ngIf="profileFormSubmittedSuccessFully$ | async"
+      [data]="profileFormData$ | async"
+    ></app-submitted-data>
 
-<p *ngIf="profileFormSubmittedSuccessFully$ | async">Success</p>
+    <app-profile-form></app-profile-form>
+
+    <div class="alert alert-success mt-4" *ngIf="profileFormSubmittedSuccessFully$ | async">Success</div>
+  </div>
+</div>
+
+
+
+
 
