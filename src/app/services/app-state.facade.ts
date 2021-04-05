@@ -61,6 +61,18 @@ export class AppStateFacade { // this service could be split to multiple based o
     distinctUntilChanged(),
   );
 
+  readonly userDataLoading$ = this.state$.pipe(
+    map(s => s.userData.loading)
+  )
+
+  readonly userDataLoaded$ = this.state$.pipe(
+    map(s => s.userData.loaded)
+  )
+
+  readonly userDataHasError$ = this.state$.pipe(
+    map(s => s.userData.hasError)
+  )
+
   private get stateSnapshot() {
     return this.stateSubject.getValue();
   }
@@ -121,9 +133,9 @@ export class AppStateFacade { // this service could be split to multiple based o
       }
     })
 
-    of().pipe(
-      switchMap(v => of()),
-      switchMap(v => of()),
+    this.api.getMagicalData('bar1').pipe(
+      switchMap(v => this.api.getMagicalData('bar2')),
+      switchMap(v => this.api.getMagicalData('bar3')),
     ).subscribe(res => {
       this.setState({
         ...this.stateSnapshot,

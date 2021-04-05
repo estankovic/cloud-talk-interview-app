@@ -11,12 +11,16 @@ export class UserProfileComponent implements OnInit {
 
   profileFormData$ = this.appState.profileFormData$;
   profileFormSubmittedSuccessFully$ = this.appState.profileFormSubmittedSuccessfully$;
+  isLoading$ = this.appState.userDataLoading$;
+  isLoaded$ = this.appState.userDataLoaded$;
+  hasError$ = this.appState.userDataHasError$;
 
   constructor(
     private readonly appState: AppStateFacade,
   ) { }
 
   ngOnInit() {
+    this.appState.loadUserData();
   }
 
 }

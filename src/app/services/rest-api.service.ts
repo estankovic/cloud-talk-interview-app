@@ -11,6 +11,14 @@ export class RestApiService {
   ) { }
 
   updateProfile(name: string, email: string, phone_number: string) {
-    return this.http.post('/api/post', {name, email, phone_number}, {withCredentials: false});
+    return this.http.post('/api/post', {name, email, phone_number});
+  }
+
+  getMagicalData(fooParam: string) {
+    return this.http.get('/api/get', {
+      params: {
+        foo: fooParam
+      }
+    });
   }
 }

@@ -1,3 +1,7 @@
+<p *ngIf="isLoading$ | async">Loading...</p>
+<p *ngIf="isLoaded$ | async">Loaded</p>
+<p *ngIf="hasError$ | async">Error</p>
+
 <app-submitted-data
   *ngIf="profileFormSubmittedSuccessFully$ | async"
   [data]="profileFormData$ | async"
